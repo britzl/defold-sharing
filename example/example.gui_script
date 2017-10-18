@@ -1,0 +1,12 @@
+local dirtylarry = require "gooey.themes.dirtylarry.dirtylarry"
+
+function init(self)
+	dirtylarry.acquire_input()
+end
+
+function on_input(self, action_id, action)
+	dirtylarry.input("share_input", gui.KEYBOARD_TYPE_DEFAULT, action_id, action, "Type text")
+	dirtylarry.button("share", action_id, action, function()
+    	share.text(gui.get_text(gui.get_node("share_input/text")))
+    end)
+end

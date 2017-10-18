@@ -1,0 +1,14 @@
+name: "share"
+
+platforms:
+  x86_64-osx:
+    context:
+        frameworks: ["AVFoundation", "AppKit"]
+
+  x86-osx:
+    context:
+        frameworks: ["AVFoundation", "AppKit"]
+
+  armv7-ios:
+    context:
+        frameworks: ["AVFoundation", "UIKit"]

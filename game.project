@@ -1,0 +1,33 @@
+[project]
+title = Sharing
+version = 1.0.1
+dependencies = https://github.com/britzl/gooey/archive/master.zip
+write_log = 0
+
+[bootstrap]
+main_collection = /example/example.collectionc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 640
+height = 1136
+
+[physics]
+scale = 0.02
+
+[script]
+shared_state = 1
+
+[library]
+include_dirs = clipboard
+
+[android]
+package = com.britzl.defold.sharing
+
+[ios]
+bundle_identifier = com.britzl.defold.sharing
+
+[osx]
+bundle_identifier = com.britzl.defold.sharing
