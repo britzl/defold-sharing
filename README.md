@@ -14,7 +14,7 @@ Or point to the ZIP file of a [specific release](https://github.com/britzl/defol
 ## Usage
 
 ### share.text(text)
-Copy text to the clipboard.
+Share text using a native sharing dialog.
 
 **PARAMETERS**
-* ```text``` (string)
+* ```text``` (string) - The text to share
