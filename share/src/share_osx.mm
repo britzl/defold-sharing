@@ -6,11 +6,22 @@
 #include <AppKit/AppKit.h>
 #include <Foundation/Foundation.h>
 
-void platform_share_text(const char* text) {
+void share_items(NSArray *items) {
 	NSView *sender = dmGraphics::GetNativeOSXNSView();
-	NSArray *items = @[[NSString stringWithUTF8String:text]];
 	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:items];
 	[sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMinYEdge];
+}
+
+void platform_share_text(const char* text) {
+	NSArray *items = @[[NSString stringWithUTF8String:text]];
+	share_items(items);
+}
+
+void platform_share_image(const char* image_bytes, size_t length) {
+	NSData *data = [[NSData alloc] initWithBytes:image_bytes length:length];
+	NSImage *image = [[NSImage alloc] initWithData:data];
+	NSArray *items = @[image];
+	share_items(items);
 }
 
 #endif

@@ -1,7 +1,7 @@
 [project]
 title = Sharing
 version = 1.0.1
-dependencies = https://github.com/britzl/gooey/archive/master.zip
+dependencies = https://github.com/britzl/gooey/archive/master.zip, https://github.com/britzl/defold-screenshot/archive/1.4.zip
 write_log = 0
 
 [bootstrap]
@@ -31,3 +31,4 @@ bundle_identifier = com.britzl.defold.sharing
 
 [osx]
 bundle_identifier = com.britzl.defold.sharing
+

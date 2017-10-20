@@ -51,7 +51,7 @@ void platform_share_text(const char* text) {
 	// prepare JNI
 	AttachScope attachscope;
 	JNIEnv* env = attachscope.m_Env;
-	jclass cls = GetClass(env, "com.britzl.defold.ShareExtension");
+	jclass cls = GetClass(env, "com.britzl.defold.share.ShareExtension");
 
 	// call method
 	jmethodID share_text = env->GetStaticMethodID(cls, "ShareText", "(Landroid/content/Context;)V");

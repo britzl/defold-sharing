@@ -15,9 +15,17 @@ static int share_text(lua_State* L) {
     return 0;
 }
 
+static int share_image(lua_State* L) {
+    size_t len;
+    const char* str = lua_tolstring(L, 1, &len);
+    platform_share_image(str, len);
+    return 0;
+}
+
 static const luaL_reg Module_methods[] =
 {
     {"text", share_text},
+    {"image", share_image},
     {0, 0}
 };
 

@@ -6,7 +6,11 @@ end
 
 function on_input(self, action_id, action)
 	dirtylarry.input("share_input", gui.KEYBOARD_TYPE_DEFAULT, action_id, action, "Type text")
-	dirtylarry.button("share", action_id, action, function()
+	dirtylarry.button("share_text", action_id, action, function()
     	share.text(gui.get_text(gui.get_node("share_input/text")))
+    end)
+	dirtylarry.button("share_screenshot", action_id, action, function()
+    	local png, w, h = screenshot.png()
+    	share.image(png)
     end)
 end
