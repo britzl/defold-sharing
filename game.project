@@ -25,6 +25,7 @@ include_dirs = clipboard
 
 [android]
 package = com.britzl.defold.sharing
+manifest = /AndroidManifest.xml
 
 [ios]
 bundle_identifier = com.britzl.defold.sharing
