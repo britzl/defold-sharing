@@ -12,7 +12,7 @@ https://github.com/britzl/defold-sharing/archive/master.zip
 Or point to the ZIP file of a [specific release](https://github.com/britzl/defold-sharing/releases).
 
 ## Additional steps for Android
-Sharing files on Android is quite a bit tricker than on iOS due to the Android permission system. The correct way to share files is via a FileProvider. In order to use the extension on Android you need to add the following to your AndroidManifest.xml file:
+Sharing files (images) on Android is quite a bit tricker than on iOS due to the Android permission system. The correct way to share files is via a FileProvider. In order to use the extension on Android you need to add the following to your AndroidManifest.xml file:
 
 	<manifest>
 	    ...
@@ -38,3 +38,9 @@ Share text using a native sharing dialog.
 
 **PARAMETERS**
 * ```text``` (string) - The text to share
+
+### share.image(bytes)
+Share an image using a native sharing dialog. The image format must be supported by ```BitmapFactory.decodeByteArray()``` on Android and ```UIImage.initWithData``` on iOS/OSX. On Android the image will first be stored locally as a file and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
+
+**PARAMETERS**
+* ``` bytes``` (string) - The image bytes to share
