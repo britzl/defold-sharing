@@ -21,7 +21,7 @@ scale = 0.02
 shared_state = 1
 
 [library]
-include_dirs = clipboard
+include_dirs = share
 
 [android]
 package = com.britzl.defold.sharing
