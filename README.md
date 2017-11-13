@@ -32,6 +32,7 @@ Sharing files (images) on Android is quite a bit tricker than on iOS due to the 
 	</manifest>
 
 ## Usage
+The share.* namespace will be nil if the share extension isn't supported (see [System requirements](#system-requirements) above).
 
 ### share.text(text)
 Share text using a native sharing dialog.
