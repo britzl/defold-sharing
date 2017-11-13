@@ -36,6 +36,11 @@ static void LuaInit(lua_State* L)
     lua_pop(L, 1);
     assert(top == lua_gettop(L));
 }
+#else
+
+static void LuaInit(lua_State* L) {}
+
+#endif
 
 dmExtension::Result AppInitializeShare(dmExtension::AppParams* params)
 {
@@ -59,5 +64,3 @@ dmExtension::Result FinalizeShare(dmExtension::Params* params)
 }
 
 DM_DECLARE_EXTENSION(EXTENSION_NAME, LIB_NAME, AppInitializeShare, AppFinalizeShare, InitializeShare, 0, 0, FinalizeShare)
-
-#endif
