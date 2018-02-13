@@ -24,7 +24,7 @@ class ShareExtension {
 	}
 
 	// https://stackoverflow.com/a/30172247/1266551
-	public static void ShareImage(Context context, byte[] image) {
+	public static void ShareImage(Context context, byte[] image, String text) {
 		Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
 
 		// save bitmap to cache directory
@@ -54,6 +54,9 @@ class ShareExtension {
 			shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
 			shareIntent.setDataAndType(contentUri, context.getContentResolver().getType(contentUri));
 			shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+			if (text != null && !text.isEmpty()) {
+				shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+			}
 			context.startActivity(Intent.createChooser(shareIntent, "Share image with..."));
 		}
 		else {

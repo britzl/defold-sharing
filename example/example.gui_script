@@ -15,6 +15,6 @@ function on_input(self, action_id, action)
     end)
 	dirtylarry.button("share_screenshot", action_id, action, function()
     	local png, w, h = screenshot.png()
-    	share.image(png)
+    	share.image(png, "Optional text")
     end)
 end

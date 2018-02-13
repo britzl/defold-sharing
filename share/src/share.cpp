@@ -10,15 +10,19 @@
 #include "share_private.h"
 
 static int share_text(lua_State* L) {
-    const char* str = luaL_checkstring(L, 1);
-    platform_share_text(str);
+    const char* text = luaL_checkstring(L, 1);
+    platform_share_text(text);
     return 0;
 }
 
 static int share_image(lua_State* L) {
     size_t len;
-    const char* str = lua_tolstring(L, 1, &len);
-    platform_share_image(str, len);
+    const char* bytes = lua_tolstring(L, 1, &len);
+    const char* text = 0;
+	if (lua_type(L, 2) == LUA_TSTRING) {
+        text = luaL_checkstring(L, 2);
+    }
+    platform_share_image(bytes, len, text);
     return 0;
 }
 

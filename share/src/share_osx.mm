@@ -17,10 +17,16 @@ void platform_share_text(const char* text) {
 	share_items(items);
 }
 
-void platform_share_image(const char* image_bytes, size_t length) {
+void platform_share_image(const char* image_bytes, size_t length, const char* text) {
 	NSData *data = [[NSData alloc] initWithBytes:image_bytes length:length];
 	NSImage *image = [[NSImage alloc] initWithData:data];
-	NSArray *items = @[image];
+	NSArray *items;
+	if (text) {
+		items = @[image, [NSString stringWithUTF8String:text]];
+	}
+	else {
+		items = @[image];
+	}
 	share_items(items);
 }
 

@@ -58,7 +58,7 @@ void platform_share_text(const char* text) {
 	env->CallStaticVoidMethod(cls, share_text, dmGraphics::GetNativeAndroidActivity(), env->NewStringUTF(text));
 }
 
-void platform_share_image(const char* image, size_t length) {
+void platform_share_image(const char* image, size_t length, const char* text) {
 	// prepare JNI
 	AttachScope attachscope;
 	JNIEnv* env = attachscope.m_Env;
@@ -68,8 +68,8 @@ void platform_share_image(const char* image, size_t length) {
 	env->SetByteArrayRegion(arr, 0, length, (jbyte*)image);
 
 	// call method
-	jmethodID share_image = env->GetStaticMethodID(cls, "ShareImage", "(Landroid/content/Context;[B)V");
-	env->CallStaticVoidMethod(cls, share_image, dmGraphics::GetNativeAndroidActivity(), arr);
+	jmethodID share_image = env->GetStaticMethodID(cls, "ShareImage", "(Landroid/content/Context;[BLjava/lang/String;)V");
+	env->CallStaticVoidMethod(cls, share_image, dmGraphics::GetNativeAndroidActivity(), arr, env->NewStringUTF(text));
 }
 
 #endif
