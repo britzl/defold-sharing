@@ -12,8 +12,10 @@
         {{#has-icons?}}
         android:icon="@drawable/icon"
         {{/has-icons?}}
-        android:label="{{project.title}}" android:hasCode="true" android:debuggable="false">
+        android:label="{{project.title}}" android:hasCode="true" android:debuggable="false"
+        android:name="android.support.multidex.MultiDexApplication">
 
+        <!-- For defold-sharing extension -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="{{android.package}}.fileprovider"
