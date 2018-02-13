@@ -40,8 +40,9 @@ Share text using a native sharing dialog.
 **PARAMETERS**
 * ```text``` (string) - The text to share
 
-### share.image(bytes)
-Share an image using a native sharing dialog. The image format must be supported by ```BitmapFactory.decodeByteArray()``` on Android and ```UIImage.initWithData``` on iOS/OSX. On Android the image will first be stored locally as a file and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
+### share.image(bytes, [text])
+Share an image (with optional text) using a native sharing dialog. The image format must be supported by ```BitmapFactory.decodeByteArray()``` on Android and ```UIImage.initWithData``` on iOS/OSX. On Android the image will first be stored locally as a file and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
 
 **PARAMETERS**
 * ``` bytes``` (string) - The image bytes to share
+* ```text``` (string) - Optional text to share
