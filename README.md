@@ -1,3 +1,5 @@
+![](logo.png)
+
 # Defold Sharing
 [Defold](https://www.defold.com) native extension to share application data using native sharing dialogs.
 
