@@ -19,10 +19,20 @@ static int share_image(lua_State* L) {
     size_t len;
     const char* bytes = lua_tolstring(L, 1, &len);
     const char* text = 0;
-	if (lua_type(L, 2) == LUA_TSTRING) {
+    if (lua_type(L, 2) == LUA_TSTRING) {
         text = luaL_checkstring(L, 2);
     }
     platform_share_image(bytes, len, text);
+    return 0;
+}
+
+static int share_file(lua_State* L) {
+    const char* path = luaL_checkstring(L, 1);
+    const char* text = 0;
+    if (lua_type(L, 2) == LUA_TSTRING) {
+        text = luaL_checkstring(L, 2);
+    }
+    platform_share_file(path, text);
     return 0;
 }
 
@@ -30,6 +40,7 @@ static const luaL_reg Module_methods[] =
 {
     {"text", share_text},
     {"image", share_image},
+    {"file", share_file},
     {0, 0}
 };
 

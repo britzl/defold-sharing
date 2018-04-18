@@ -72,4 +72,15 @@ void platform_share_image(const char* image, size_t length, const char* text) {
 	env->CallStaticVoidMethod(cls, share_image, dmGraphics::GetNativeAndroidActivity(), arr, env->NewStringUTF(text));
 }
 
+void platform_share_file(const char* path, const char* text) {
+	// prepare JNI
+	AttachScope attachscope;
+	JNIEnv* env = attachscope.m_Env;
+	jclass cls = GetClass(env, "com.britzl.defold.sharing.ShareExtension");
+
+	// call method
+	jmethodID share_image = env->GetStaticMethodID(cls, "ShareFile", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V");
+	env->CallStaticVoidMethod(cls, share_image, dmGraphics::GetNativeAndroidActivity(), env->NewStringUTF(path), env->NewStringUTF(text));
+}
+
 #endif

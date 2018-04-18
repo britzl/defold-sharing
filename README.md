@@ -48,3 +48,10 @@ Share an image (with optional text) using a native sharing dialog. The image for
 **PARAMETERS**
 * ``` bytes``` (string) - The image bytes to share
 * ```text``` (string) - Optional text to share
+
+### share.file(path, [text])
+Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
+
+**PARAMETERS**
+* ``` path``` (string) - Full path to the file to share
+* ```text``` (string) - Optional text to share
