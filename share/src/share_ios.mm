@@ -9,6 +9,15 @@
 void share_items(NSArray *items) {
 	UIWindow *window = dmGraphics::GetNativeiOSUIWindow();
 	UIActivityViewController *controller = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+	controller.modalPresentationStyle = UIModalPresentationPopover;
+
+	UIPopoverPresentationController *popController = [controller popoverPresentationController];
+	if(popController) {
+		popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+		popController.sourceView = dmGraphics::GetNativeiOSUIView();
+		popController.sourceRect = CGRectMake(0.0, 0.0, 1.0, 1.0);
+	}
+
 	[window.rootViewController presentViewController:controller animated:YES completion:NULL];
 }
 
