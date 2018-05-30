@@ -50,7 +50,7 @@ Share an image (with optional text) using a native sharing dialog. The image for
 * ```text``` (string) - Optional text to share
 
 ### share.file(path, [text])
-Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
+Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above. Files are shared with their original filename and extension. This will allow iOS to offer different kinds of applications depending on the shared content.
 
 **PARAMETERS**
 * ``` path``` (string) - Full path to the file to share
