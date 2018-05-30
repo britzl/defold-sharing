@@ -72,7 +72,7 @@ class ShareExtension {
 
 		// copy to cache directory
 		File dstPath = new File(context.getCacheDir(), "files");
-		File dstFile = new File(dstPath, "shared_file");
+		File dstFile = new File(dstPath, new File(path).getName());
 
 		FileChannel source = null;
 		FileChannel destination = null;
