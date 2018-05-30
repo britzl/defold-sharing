@@ -3,6 +3,7 @@ title = Sharing
 version = 1.0.1
 dependencies = https://github.com/britzl/gooey/archive/master.zip,https://github.com/britzl/defold-screenshot/archive/1.5.zip
 write_log = 0
+custom_resources = example/videos
 
 [bootstrap]
 main_collection = /example/example.collectionc
@@ -32,3 +33,4 @@ bundle_identifier = com.britzl.defold.sharing
 
 [osx]
 bundle_identifier = com.britzl.defold.sharing
+
