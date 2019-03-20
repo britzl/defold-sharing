@@ -13,6 +13,17 @@ https://github.com/britzl/defold-sharing/archive/master.zip
 
 Or point to the ZIP file of a [specific release](https://github.com/britzl/defold-sharing/releases).
 
+## Additional steps for iOS
+In the case when a user wants to save a video or an image to the gallery iOS requires to explain to a user why you wanna access to the gallery.
+Your explanation should be added into your info.plist:
+
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your application needs permission to save the content to the gallery.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your application needs permission to save the content to the gallery.</string>
+
+
+
 ## Additional steps for Android
 Sharing files (images) on Android is quite a bit tricker than on iOS due to the Android permission system. The correct way to share files is via a FileProvider. In order to use the extension on Android you need to add the following to your AndroidManifest.xml file:
 
