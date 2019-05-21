@@ -13,6 +13,9 @@ https://github.com/britzl/defold-sharing/archive/master.zip
 
 Or point to the ZIP file of a [specific release](https://github.com/britzl/defold-sharing/releases).
 
+<details><summary>You don't need to merge manifests manually starting Defold 1.2.153</summary>
+<p>
+	
 ## Additional steps for iOS
 In the case when a user wants to save a video or an image to the gallery iOS will need to show an explanation to the user. Your explanation should be added into your `Info.plist`:
 
@@ -40,6 +43,8 @@ Sharing files (images) on Android is quite a bit tricker than on iOS due to the 
 	        ...
 	    </application>
 	</manifest>
+</p>
+</details>
 
 ## Usage
 The share.* namespace will be nil if the share extension isn't supported (see [System requirements](#system-requirements) above).
