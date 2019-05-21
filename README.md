@@ -15,6 +15,7 @@ Or point to the ZIP file of a [specific release](https://github.com/britzl/defol
 
 <details><summary>You don't need to merge manifests manually starting Defold 1.2.153</summary>
 <p>
+	
 ## Additional steps for iOS
 In the case when a user wants to save a video or an image to the gallery iOS requires to explain to a user why you wanna access to the gallery.
 Your explanation should be added into your info.plist:
