@@ -12,3 +12,11 @@ platforms:
   armv7-ios:
     context:
         frameworks: ["AVFoundation", "UIKit"]
+
+  arm64-ios:
+    context:
+        frameworks: ["AVFoundation", "UIKit"]
+
+  x86_64-ios:
+    context:
+        frameworks: ["AVFoundation", "UIKit"]

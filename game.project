@@ -26,7 +26,6 @@ include_dirs = share
 
 [android]
 package = com.britzl.defold.sharing
-manifest = /share/AndroidManifest.xml
 
 [ios]
 bundle_identifier = com.britzl.defold.sharing
