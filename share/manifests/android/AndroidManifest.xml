@@ -5,7 +5,7 @@
 
         <!-- For defold-sharing extension -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="com.britzl.defold.sharing.SharingFileProvider"
             android:authorities="{{android.package}}.fileprovider"
             android:grantUriPermissions="true"
             android:exported="false">
