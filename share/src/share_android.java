@@ -11,7 +11,6 @@ import java.io.File;
 import java.nio.channels.FileChannel;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import android.support.v4.content.FileProvider;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -50,7 +49,7 @@ class ShareExtension {
 		File imagePath = new File(context.getCacheDir(), "images");
 		File newFile = new File(imagePath, "shared_image.png");
 		String packageName = context.getPackageName();
-		Uri contentUri = FileProvider.getUriForFile(context, packageName + ".fileprovider", newFile);
+		Uri contentUri = SharingFileProvider.getUriForFile(context, packageName + ".fileprovider", newFile);
 		if (contentUri != null) {
 			Intent shareIntent = new Intent(Intent.ACTION_SEND);
 			shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
@@ -90,7 +89,7 @@ class ShareExtension {
 
 		// share it
 		String packageName = context.getPackageName();
-		Uri contentUri = FileProvider.getUriForFile(context, packageName + ".fileprovider", dstFile);
+		Uri contentUri = SharingFileProvider.getUriForFile(context, packageName + ".fileprovider", dstFile);
 		if (contentUri != null) {
 			Intent shareIntent = new Intent(Intent.ACTION_SEND);
 			shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // temp permission for receiving app to read this file
