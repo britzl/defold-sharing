@@ -13,6 +13,12 @@ https://github.com/britzl/defold-sharing/archive/master.zip
 
 Or point to the ZIP file of a [specific release](https://github.com/britzl/defold-sharing/releases).
 
+
+Starting Defold 1.2.162 this extension has one more dependency:
+
+https://github.com/defold/extension-gps/archive/master.zip
+
+
 <details><summary>You don't need to merge manifests manually starting Defold 1.2.153</summary>
 <p>
 	
