@@ -1,0 +1,7 @@
+dependencies {
+  // https://developers.google.com/android/guides/setup
+  compile 'com.google.android.gms:play-services-base:16.+'
+
+  // https://developer.android.com/topic/libraries/support-library/packages
+  compile 'com.android.support:support-compat:26.+'
+}
