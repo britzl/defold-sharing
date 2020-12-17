@@ -13,44 +13,7 @@ https://github.com/britzl/defold-sharing/archive/master.zip
 
 Or point to the ZIP file of a [specific release](https://github.com/britzl/defold-sharing/releases).
 
-
-Starting Defold 1.2.162 this extension has one more dependency:
-
-https://github.com/defold/extension-gps/archive/master.zip
-
-
-<details><summary>You don't need to merge manifests manually starting Defold 1.2.153</summary>
-<p>
-	
-## Additional steps for iOS
-In the case when a user wants to save a video or an image to the gallery iOS will need to show an explanation to the user. Your explanation should be added into your `Info.plist`:
-
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Your application needs permission to save the content to the gallery.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Your application needs permission to save the content to the gallery.</string>
-
-## Additional steps for Android
-Sharing files (images) on Android is quite a bit tricker than on iOS due to the Android permission system. The correct way to share files is via a FileProvider. In order to use the extension on Android you need to add the following to your `AndroidManifest.xml` file:
-
-	<manifest>
-	    ...
-	    <application>
-	        ...
-	        <provider
-	            android:name="android.support.v4.content.FileProvider"
-	            android:authorities="{{android.package}}.fileprovider"
-	            android:grantUriPermissions="true"
-	            android:exported="false">
-	            <meta-data
-	                android:name="android.support.FILE_PROVIDER_PATHS"
-	                android:resource="@xml/filepaths" />
-	        </provider>
-	        ...
-	    </application>
-	</manifest>
-</p>
-</details>
+Starting Defold 1.2.165 the Android dependencies are resolved using the `build.gradle` file.
 
 ## Usage
 The share.* namespace will be nil if the share extension isn't supported (see [System requirements](#system-requirements) above).
