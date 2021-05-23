@@ -1,9 +1,10 @@
 [project]
 title = Sharing
 version = 1.0.1
-dependencies = https://github.com/britzl/gooey/archive/8.1.1.zip,https://github.com/britzl/defold-screenshot/archive/1.7.4.zip
 write_log = 0
 custom_resources = example/videos
+dependencies#0 = https://github.com/britzl/gooey/archive/8.1.1.zip
+dependencies#1 = https://github.com/britzl/defold-screenshot/archive/1.7.4.zip
 
 [bootstrap]
 main_collection = /example/example.collectionc
@@ -32,7 +33,4 @@ bundle_identifier = com.britzl.defold.sharing
 
 [osx]
 bundle_identifier = com.britzl.defold.sharing
-
-[native_extension]
-app_manifest = /generated.appmanifest
 
