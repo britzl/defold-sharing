@@ -26,7 +26,7 @@ void platform_share_text(const char* text) {
 	share_items(items);
 }
 
-void platform_share_image(const char* image_bytes, size_t length, const char* text) {
+void platform_share_image(const char* image_bytes, size_t length, const char* text, const char* name) {
 	NSData *data = [[NSData alloc] initWithBytes:image_bytes length:length];
 	UIImage *image = [[UIImage alloc] initWithData:data];
 	NSArray *items;
@@ -39,7 +39,7 @@ void platform_share_image(const char* image_bytes, size_t length, const char* te
 	share_items(items);
 }
 
-void platform_share_file(const char* path, const char* text) {
+void platform_share_file(const char* path, const char* text, const char* name) {
 	NSURL *url = [NSURL fileURLWithPath:[NSString stringWithUTF8String:path]];
 	NSArray *items;
 	if (text) {
