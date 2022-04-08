@@ -49,7 +49,7 @@ var LibShare = {
             try {
                 var file_data = data ? UTF8ToString(data) : '';
                 var file_text = text ? UTF8ToString(text) : '';
-                var file_name = (name ? UTF8ToString(name) : 'file.txt');
+                var file_name = (name ? UTF8ToString(name) : 'file.png');
                 var arr = file_data.split(',');
                 var mime = arr[0].match(/:(.*?);/)[1];
                 var bstr = atob(arr[1]);
