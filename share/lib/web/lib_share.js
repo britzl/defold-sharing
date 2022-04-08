@@ -21,19 +21,24 @@ var LibShare = {
         }
     },
 
-    ShareFile: function (data, type, name) {
+    ShareFile: function (data, type, name, title, text, url) {
         if (navigator && navigator.share) {
             try {
                 var file_data = data ? UTF8ToString(data) : '';
                 var file_type = type ? UTF8ToString(type) : 'text/plain';
-                var file_name = (name ? UTF8ToString(name) : 'file.txt');
+                var file_name = name ? UTF8ToString(name) : 'file.txt';
+                var file_title = title ? UTF8ToString(title) : '';
+                var file_text = text ? UTF8ToString(text) : '';
+                var file_url = url ? UTF8ToString(url) : '';
                 var shareData = {
                     files: [
                         new File([file_data], file_name, {
                             type: file_type
                         })
                     ],
-                    title: file_name
+                    title: file_title,
+                    text: file_text,
+                    url: file_url
                 }
                 navigator.share(shareData).then().catch((err) => { console.log('Sharing Error: ' + err); });
             } catch (err) {

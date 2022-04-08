@@ -33,11 +33,17 @@ Share an image (with optional text) using a native sharing dialog. The image for
 * ```text``` (string) - Optional text to share
 * ```file_name``` (string) - Optional Only for `HTML5` image name. Default `"file.png"`
 
-### share.file(path, [text], [file_name])
+### share.file(path, [text], [data])
 Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above. Files are shared with their original filename and extension. This will allow iOS to offer different kinds of applications depending on the shared content.
 
 **PARAMETERS**
-* ``` path``` (string) - Full path to the file to share. For `HTML5`: specify the data that should be in the file.
-* ```text``` (string) - Optional text to share. For `HTML5`: specify the data [type](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share#shareable_file_types). Default `"text/plain"`
+* ``` path``` (string) - Full path to the file to share. For `HTML5`: specify the name of the file. Default `file.txt`.
+* ```text``` (string) - Optional text to share. For `HTML5`: specify the data that should be in the file.
 
-* ```file_name``` (string) - Optional Only for `HTML5` file name. Default `"file.txt"`
+* ```data``` (table) - Optional Only for `HTML5`.
+  Options: 
+  * type (string) - data [type](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share#shareable_file_types). Default `"text/plain"`
+  * text (string) - text to be shared
+  * title (string) - title to be shared. May be ignored by the target
+  * url (string) - URL to be shared
+  

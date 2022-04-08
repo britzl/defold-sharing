@@ -25,7 +25,7 @@ function on_input(self, action_id, action)
     end)
     dirtylarry.button("share_file", action_id, action, function()
         if html5 then
-            share.file("Some file info", "text/plain", "myfilename.txt")
+            share.file("myfilename.txt", "Some file info", {text = "Send text", url = "url.txt", type = "text/plain", title = "hello"})
         else
             local path = sys.get_save_file("defold-sharing", "alphabet.txt")
             local file = assert(io.open(path, "w+"))
@@ -37,7 +37,7 @@ function on_input(self, action_id, action)
     end)
     dirtylarry.button("share_video", action_id, action, function()
         if html5 then
-            share.file("Some file info", "text/plain", "myfilename.txt")
+            share.file("video.mp4", "some video data", {type = "video/mp4"})
         else
             local res = sys.load_resource("/example/videos/small.mp4")
             local filename = sys.get_save_file("defold-sharing", "small.mp4")

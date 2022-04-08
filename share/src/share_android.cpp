@@ -79,7 +79,7 @@ void platform_share_image(const char* image, size_t length, const char* text, co
 	env->DeleteLocalRef(text_string);
 }
 
-void platform_share_file(const char* path, const char* text, const char* name) {
+void platform_share_file(const char* path, const char* text, const ShareFileInfo *info) {
 	// prepare JNI
 	ThreadAttacher attacher;
 	JNIEnv *env = attacher.env;

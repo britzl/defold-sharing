@@ -30,7 +30,7 @@ void platform_share_image(const char* image_bytes, size_t length, const char* te
 	share_items(items);
 }
 
-void platform_share_file(const char* path, const char* text, const char* name) {
+void platform_share_file(const char* path, const char* text, const ShareFileInfo *info) {
 	NSURL *url = [NSURL fileURLWithPath:[NSString stringWithUTF8String:path]];
 	NSArray *items;
 	if (text) {
