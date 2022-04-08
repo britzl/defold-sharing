@@ -41,7 +41,6 @@ Share a file (with optional text) using a native sharing dialog. On Android the 
 * ```text``` (string) - Optional text to share. For `HTML5`: specify the data that should be in the file.
 
 * ```options``` (table) - Optional Only for `HTML5`.
-  Options: 
   * type (string) - data [type](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share#shareable_file_types). Default `"text/plain"`
   * text (string) - text to be shared
   * title (string) - title to be shared. May be ignored by the target
