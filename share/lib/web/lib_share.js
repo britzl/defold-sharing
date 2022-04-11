@@ -27,9 +27,9 @@ var LibShare = {
                 var file_data = data ? UTF8ToString(data) : '';
                 var file_type = type ? UTF8ToString(type) : 'text/plain';
                 var file_name = name ? UTF8ToString(name) : 'file.txt';
-                var file_title = title ? UTF8ToString(title) : '';
-                var file_text = text ? UTF8ToString(text) : '';
-                var file_url = url ? UTF8ToString(url) : '';
+                var file_title = title ? UTF8ToString(title) : undefined;
+                var file_text = text ? UTF8ToString(text) : undefined;
+                var file_url = url ? UTF8ToString(url) : undefined;
                 var shareData = {
                     files: [
                         new File([file_data], file_name, {
@@ -53,7 +53,7 @@ var LibShare = {
         if (navigator && navigator.share) {
             try {
                 var file_data = data ? UTF8ToString(data) : '';
-                var file_text = text ? UTF8ToString(text) : '';
+                var file_text = text ? UTF8ToString(text) : undefined;
                 var file_name = (name ? UTF8ToString(name) : 'file.png');
                 var arr = file_data.split(',');
                 var mime = arr[0].match(/:(.*?);/)[1];
