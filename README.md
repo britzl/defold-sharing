@@ -26,7 +26,7 @@ Share text using a native sharing dialog.
 * ```text``` (string) - The text to share
 
 ### share.image(bytes, [text], [file_name])
-Share an image (with optional text) using a native sharing dialog. The image format must be supported by ```BitmapFactory.decodeByteArray()``` on Android, ```UIImage.initWithData``` on iOS/OSX and [DataURI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) on HTML5. On Android the image will first be stored locally as a file and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above.
+Share an image (with optional text) using a native sharing dialog. The image format must be supported by ```BitmapFactory.decodeByteArray()``` on Android, ```UIImage.initWithData``` on iOS/OSX and [DataURI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) on HTML5. On Android the image will first be stored locally as a file and then shared using a FileProvider.
 
 **PARAMETERS**
 * ``` bytes``` (string) - The image bytes to share
@@ -34,7 +34,7 @@ Share an image (with optional text) using a native sharing dialog. The image for
 * ```file_name``` (string) - Optional Only for `HTML5` image name. Default `"file.png"`
 
 ### share.file(path, [text], [options])
-Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. In order for this to work you need to follow the additional setup steps for Android mentioned above. Files are shared with their original filename and extension. This will allow iOS to offer different kinds of applications depending on the shared content.
+Share a file (with optional text) using a native sharing dialog. On Android the file will first be copied to a predefined location and then shared using a FileProvider. Files are shared with their original filename and extension. This will allow iOS to offer different kinds of applications depending on the shared content.
 
 **PARAMETERS**
 * ``` path``` (string) - Full path to the file to share. For `HTML5`: specify the name of the file. Default `file.txt`.
