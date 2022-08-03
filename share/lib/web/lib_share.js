@@ -49,21 +49,35 @@ var LibShare = {
         }
     },
 
-    ShareImage: function (data, text, name) {
+    ShareImage: function (data, size, text, name) {
         if (navigator && navigator.share) {
             try {
                 var file_data = data ? UTF8ToString(data) : '';
                 var file_text = text ? UTF8ToString(text) : undefined;
                 var file_name = (name ? UTF8ToString(name) : 'file.png');
-                var arr = file_data.split(',');
-                var mime = arr[0].match(/:(.*?);/)[1];
-                var bstr = atob(arr[1]);
-                var n = bstr.length;
-                var u8arr = new Uint8Array(n);
-                while (n--) {
-                    u8arr[n] = bstr.charCodeAt(n);
+
+                var mime_type = null;
+                var image_data = null;
+                if (file_data.startsWith("data:")) {
+                    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
+                    var arr = file_data.split(',');
+                    mime_type = arr[0].match(/:(.*?);/)[1];
+
+                    // base64 decode
+                    var bstr = atob(arr[1]);
+
+                    // copy
+                    var n = bstr.length;
+                    image_data = new Uint8Array(n);
+                    while (n--) {
+                        image_data[n] = bstr.charCodeAt(n);
+                    }
                 }
-                var file = new File([u8arr], file_name, { type: mime });
+                else {
+                    image_data = new Uint8Array(Module.HEAPU8.buffer, data, size);
+                }
+
+                var file = new File([image_data], file_name, { type: mime_type });
                 var shareData = {
                     files: [file],
                     title: file_name,
