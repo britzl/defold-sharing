@@ -25,7 +25,7 @@ var LibShare = {
         if (navigator && navigator.share) {
             try {
                 var file_data = data ? UTF8ToString(data) : '';
-                var file_type = type ? UTF8ToString(type) : 'text/plain';
+                var mime_type = type ? UTF8ToString(type) : 'text/plain';
                 var file_name = name ? UTF8ToString(name) : 'file.txt';
                 var file_title = title ? UTF8ToString(title) : undefined;
                 var file_text = text ? UTF8ToString(text) : undefined;
@@ -33,7 +33,7 @@ var LibShare = {
                 var shareData = {
                     files: [
                         new File([file_data], file_name, {
-                            type: file_type
+                            type: mime_type
                         })
                     ],
                     title: file_title,
@@ -55,8 +55,15 @@ var LibShare = {
                 var file_data = data ? UTF8ToString(data) : '';
                 var file_text = text ? UTF8ToString(text) : undefined;
                 var file_name = (name ? UTF8ToString(name) : 'file.png');
+                var file_ext = file_name.split('.').pop();
 
-                var mime_type = null;
+                const MIME_TYPES = {
+                    "png": "image/png",
+                    "jpg": "image/jpeg",
+                    "jpeg": "image/jpeg",
+                    "gif": "image/gif"
+                };
+                var mime_type = MIME_TYPES[file_ext];
                 var image_data = null;
                 if (file_data.startsWith("data:")) {
                     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs
@@ -77,9 +84,12 @@ var LibShare = {
                     image_data = new Uint8Array(Module.HEAPU8.buffer, data, size);
                 }
 
-                var file = new File([image_data], file_name, { type: mime_type });
                 var shareData = {
-                    files: [file],
+                    files: [
+                        new File([image_data], file_name, {
+                            type: mime_type
+                        })
+                    ],
                     title: file_name,
                     text: file_text
                 };
