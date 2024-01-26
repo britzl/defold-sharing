@@ -1,4 +1,8 @@
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-  // androidx.core.content.FileProvider
-  implementation 'androidx.core:core:1.6.+'
+    // androidx.core.content.FileProvider
+    implementation 'androidx.core:core:1.12.0'
 }
