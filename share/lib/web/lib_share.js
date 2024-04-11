@@ -104,4 +104,4 @@ var LibShare = {
 }
 
 autoAddDeps(LibShare, '$ShareLibrary');
-mergeInto(LibraryManager.library, LibShare);
+addToLibrary(LibShare);
