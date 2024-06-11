@@ -1,37 +1,51 @@
 local dirtylarry = require "gooey.themes.dirtylarry.dirtylarry"
 
 function init(self)
-	if share then
-		dirtylarry.acquire_input()
-	else
-		print("share.* not supported")
-	end
+    if share then
+        dirtylarry.acquire_input()
+    else
+        print("share.* not supported")
+    end
 end
 
 function on_input(self, action_id, action)
-	dirtylarry.input("share_input", gui.KEYBOARD_TYPE_DEFAULT, action_id, action, "Type text")
-	dirtylarry.button("share_text", action_id, action, function()
-		share.text(gui.get_text(gui.get_node("share_input/text")))
-	end)
-	dirtylarry.button("share_screenshot", action_id, action, function()
-		local png, w, h = screenshot.png()
-		share.image(png, "Optional text")
-	end)
-	dirtylarry.button("share_file", action_id, action, function()
-		local path = sys.get_save_file("defold-sharing", "alphabet.txt")
-		local file = assert(io.open(path, "w+"))
-		file:write("Sphinx of black quartz, judge my vow.")
-		file:flush()
-		file:close()
-		share.file(path, "Optional text")
-	end)
-	dirtylarry.button("share_video", action_id, action, function()
-		local res = sys.load_resource("/example/videos/small.mp4")
-		local filename = sys.get_save_file("defold-sharing", "small.mp4")
-		local file = io.open(filename, "wb")
-		file:write(res)
-		file:flush()
-		file:close()
-		share.file(filename, "Optional text")
-	end)
+    dirtylarry.input("share_input", gui.KEYBOARD_TYPE_DEFAULT, action_id, action, "Type text")
+    dirtylarry.button("share_text", action_id, action, function()
+        share.text(gui.get_text(gui.get_node("share_input/text")))
+    end)
+    dirtylarry.button("share_screenshot", action_id, action, function()
+        if html5 then
+            screenshot.png(0, 0, 640, 1136, function(self, image, w, h)
+                share.image(image, "Optional text", "file_name.png")
+            end)
+        else
+            local png, w, h = screenshot.png()
+            share.image(png, "Optional text")
+        end
+    end)
+    dirtylarry.button("share_file", action_id, action, function()
+        if html5 then
+            share.file("myfilename.txt", "Some file info", {text = "Send text", url = "url.txt", type = "text/plain", title = "hello"})
+        else
+            local path = sys.get_save_file("defold-sharing", "alphabet.txt")
+            local file = assert(io.open(path, "w+"))
+            file:write("Sphinx of black quartz, judge my vow.")
+            file:flush()
+            file:close()
+            share.file(path, "Optional text")
+        end
+    end)
+    dirtylarry.button("share_video", action_id, action, function()
+        if html5 then
+            share.file("video.mp4", "some video data", {type = "video/mp4"})
+        else
+            local res = sys.load_resource("/example/videos/small.mp4")
+            local filename = sys.get_save_file("defold-sharing", "small.mp4")
+            local file = io.open(filename, "wb")
+            file:write(res)
+            file:flush()
+            file:close()
+            share.file(filename, "Optional text")
+        end
+    end)
 end
