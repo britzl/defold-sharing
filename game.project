@@ -4,7 +4,7 @@ version = 1.0.1
 write_log = 0
 custom_resources = example/videos
 dependencies#0 = https://github.com/britzl/gooey/archive/8.1.1.zip
-dependencies#1 = https://github.com/britzl/defold-screenshot/archive/1.10.0.zip
+dependencies#1 = https://github.com/britzl/defold-screenshot/archive/1.11.0.zip
 
 [bootstrap]
 main_collection = /example/example.collectionc
